@@ -23,7 +23,6 @@ Usage: "python3 mcf2pd.py [serialize_with]"
                   Just leave blank if you prefer pickle.
 '''
 
-
 # GLOBAL
 REALLY_DELETE_SWITCH = False  
 
@@ -39,15 +38,14 @@ def init_root_dir():
         if isinstance(PROOT, Path) and PROOT.is_dir():
             return PROOT
     
-    try:
-        print("Attempting to use my Local Dev Environment Module Hacks...")
-        from dev_hacks import MY_PROOT_PATH  # Just a local dev environment hack
-        return MY_PROOT_PATH
-    except ModuleNotFoundError:
-        print(f"Module Hack not found -- attempting to make a test directory at {PROOT}")
-    finally:
-        PROOT = Path.home() / getpass.getuser() / "mcf2pd-test"
-    
+    #try:
+        #print("Attempting to use my Local Dev Environment Module Hacks...")
+        #from dev_hacks import MY_PROOT_PATH  # Just a local dev environment hack
+        #return MY_PROOT_PATH
+    #except ModuleNotFoundError:
+        #print(f"Module Hack not found -- attempting to make a test directory at {PROOT}")
+    #finally:
+    PROOT = Path.home() / getpass.getuser() / "mcf2pd-test"
     try:
         PROOT.mkdir(parents=True)
         os.path.chdir(PROOT)
@@ -65,14 +63,17 @@ PROOT = init_root_dir()
 PICKLE = PROOT / 'files.pickle'
 JSON = PROOT / 'files.json'
 
-print(sys.argv)
+
 def parse_data_opt(args=sys.argv):
     '''
     For now uses sys.argv instead of argparse to determine if the 'json' option is used.
     This is the only argument atm.
     '''
-    if len(args) != 1 or args[-1] == 'json':
-        return True
+    try:
+        if args[-1] == 'json':
+            return True
+    except IndexError:
+        print(f"LOGGING: args is {args}")
 
 def init_get_paths(get_generator=False):
     '''
@@ -280,7 +281,7 @@ def jsonify_dict(data):
         json.dump(data, fo)
         
 
-def main_remove_files_and_store_data(read_from_json_opt=False, min_size=1000):
+def main_remove_files_and_store_data(read_from_json_opt=False, min_size=5):
     '''
     First function called by main() after parse_data_opt()
     Assembles files as a list iterable, moves the files, assembles dupes, removes dupes,
