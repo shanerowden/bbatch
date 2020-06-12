@@ -80,12 +80,12 @@ def parse_data_opt(args=sys.argv):
             + 'Use "python3 script.py json" if you want')
             
 
-def init_get_paths():
+def init_get_paths(get_generator=False):
     '''
     This is used to apply the global values used at the bottom if __naame__ == '__main__'
     It directs to get_files_and_dirs, under the assumption that this is the main script.
     '''
-    return get_files_and_dirs()
+    return get_files_and_dirs(get_generator=get_generator)
 
 def get_files_and_dirs(get_generator=False):
     '''
@@ -367,7 +367,7 @@ def main():
     data = get_data_dict(
         empty=False, data_is_json=data_option
     )
-
+    return data
 
 
 if not __name__ == '__main__':
@@ -377,5 +377,5 @@ else:
     REALLY_DELETE_SWITCH = really_delete_opt()
     DIRS, FILES = init_get_paths()
     
-    main()
+    d = main()
 
