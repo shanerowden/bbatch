@@ -1,7 +1,5 @@
 # bbatch v0.2
-Big Batch Moves and Big Batch Data
-
-*This Script Works But the Code is an Absolute Mess, I am Aware...*
+This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some of My Files...
 
 + version 0.2 -- added bdata.py
 + version 0.1 -- started with the mess of bbatch.py
@@ -11,62 +9,158 @@ To get the most use out of this tool right now, you should have a directory full
 Right now it will not walk subdirs inside of subdirs -- it's active pulling files to the project root from only one level of directory depth
 
 
-#### TODO: needs an example dataset useage...
-I'm going to work on assembling an example at some point to demonstrate what the program does that isn't a masse of unorganized stuff on my computer that I'm not going to just share as an exmaple on here. But... it works if you can figure it out.
-
 ### PREREQUISITES
-1. Be using Linux.
-2. Install python3 --`apt install python3 python3-pip`
-3. Install virtualenv -- `python3 -m pip install virtualenv`
++ Be using Linux.
++ Install python3
++ Install virtualenv
+
 
 ### INSTALL
 ```bash
+apt install python3 python3-pip
+python3 -m pip install virtualenv
+
 git clone https://github.com/shanerowden/bbatch.git
 cd bbatch
+
 python3 -m virtualenv venv
 source venv/bin/activate
+
 python -m pip install -r requirements.txt
+
 chmod u+x bbatch
 ```
 
-### USAGE
-```bash
-./bbatch <'/path/to/project/root/'> <'json'>
+#### USAGE EXAMPLE
+Before running the script, this is an example directory path with the listed contents. Lets pretend I have included the hundreds of directories instead of just these.
+
+```
+user@host:/path/to/test/$ ls
+Archaic/                          dist/               genwrapper.py      img-resize/      mancer-term/             
+backup_simpai/                    dproj/              GetBackInto/       InstagramAPI/    moviepy_testing/        
+bbatch/                           es6/                get_good_django/   interject-lib/   nameless-space-replace/
 ```
 
-+ Use first argument to set the PROJECT ROOT Absolute Path
-+ Use an optional second that can only be 'json' if you prefer that to pickle data
-+ 'json' is an optional last arguments that tells the script to serialize data to json instead of pickle; just leave blank if you prefer pickle
-
-### ALTERNATIVELY
-You can also just do this if you find this approach more sophisticated:
+When you run this command...
 
 ```bash
-export MCF2PD_PROOT="/path/to/project/root/"
-python3 bbatch.py <json>
+./bbatch '/path/to/project/root/' ['json']
 ```
 
-### NOTE ON PROJECT PATH
-If the program cannot find a project root it will attempt to make one at 
-`/home/$USER/mcf2pd-test/` -- but there will be no files there to process.
+*Notes on Command Arguments*
++ It's pretty simple.
++ Use first argument to set the PROJECT ROOT.
++ Use an optional 'json' at the end if you prefer; leave it blank for pickle.
++ If the program cannot find a project root it will attempt to make `/home/$USER/mcf2pd-test/`
++ You can also do this if you think it's more sophisticated:
+    
+```bash
+export MCF2PD_DEST="/path/to/project/root/"
+python3 bbatch.py
+```
+
+...it will start like this:
+    
+```
+Looking for Path to project DEST in exported env variable MCF2PD_DEST
+Found at /path/to/project/root/
+Really Delete Switch is Set to -- False
+TYPE "DEL" to set to True > DEL
+Really going to delete. Press Any Key > 
+LENGTH OF DIRS: 54
+LENGTH OF FILES: 203
+PRESS ANY KEY > 
+Checking path: /path/to/project/root/README.md
+ALREADY EXISTS: /path/to/project/root/README.md
+Checking path: /path/to/project/root/LICENSE
+ALREADY EXISTS: /path/to/project/root/LICENSE
+Checking path: /path/to/project/root/LICENSE
+ALREADY EXISTS: /path/to/project/root/LICENSE
+Checking path: /path/to/project/root/webpack.config.js
+FILE WILL BE MOVING: /path/to/project/root/vanilla-terminal-CLONE/webpack.config.js TO /path/to/project/root/webpack.config.js
+```
+
+...and go on to...
+
+```
+MOVING TO NEW PATH: /path/to/project/root/webpack.config.js
+MOVING TO NEW PATH: /path/to/project/root/jest.config.js
+MOVING TO NEW PATH: /path/to/project/root/webpack.config.js
+MOVING TO NEW PATH: /path/to/project/root/jest.config.js
+SRC: README.md - size 1230
+DEST: README.md - size 4070
+SRC: LICENSE - size 35141
+DEST: LICENSE - size 1067
+SRC: LICENSE - size 1076
+DEST: LICENSE - size 1067
+SRC: README.md - size 4070
+DEST: README.md - size 4070
+NOTICE: vanilla-terminal-CLONE/README.md is the same size as README.md
+SRC: package.json - size 1247
+DEST: package.json - size 1299
+```
+
+When it starts comparing file sizes, it is try to determine if files that it cannot move are the same files that exist somewhere else or if they are different files. If they are different, the program will leave them in their directories but if they're the same, it will move them and reduce the excess copies.
+
+```
+DELETING: /path/to/project/root/webpack.config.js - size 621
+DELETING: /path/to/project/root/jest.config.js - size 438
+All files were moved from dirs to /path/to/project/root/
+ADDING: onesettings.py to dict text/plain, us-ascii
+ADDING: FTP in python to dict text/x-python, utf-8
+ADDING: bootstrap-4.0.0.zip to dict application/zip, binary
+ADDING: work.html to dict text/html, us-ascii
+ADDING: wiki_random.py to dict text/plain, us-ascii
+ADDING: selectors.json to dict text/plain, us-ascii
+ADDING: site_health.py to dict text/plain, us-ascii
+```
+
+It eventually gets to here, where it's actually finishing up with moving files. It's now trying to take account of what is there, and adding it to a dict for serialization.
+
+```
+Data Successfully Serialized
+Files Contents Were Stored to Data /path/to/project/root/files.pickle
+LOADED PICKLE: /path/to/project/root/files.pickle
+>>>
+```
+
+When it's finished, it leaves you in the shell with the data loaded as a dict, `d`.
 
 
-### LATEST UPDATES
+```
+Looking for Path to project DEST in exported env variable MCF2PD_DEST
+Found at /path/to/project/root/
+Really Delete Switch is Set to -- False
+TYPE "DEL" to set to True > DEL
+Really going to delete. Press Any Key > 
+LENGTH OF DIRS: 54
+LENGTH OF FILES: 203
+PRESS ANY KEY > 
+Checking path: /path/to/project/root/README.md
+ALREADY EXISTS: /path/to/project/root/README.md
+Checking path: /path/to/project/root/LICENSE
+ALREADY EXISTS: /path/to/project/root/LICENSE
+Checking path: /path/to/project/root/LICENSE
+ALREADY EXISTS: /path/to/project/root/LICENSE
+Checking path: /path/to/project/root/webpack.config.js
+FILE WILL BE MOVING: /path/to/project/root/vanilla-terminal-CLONE/webpack.config.js TO /path/to/project/root/webpack.config.js
+```
 
+## LATEST UPDATES
 I added these [bdata.py functions](https://github.com/shanerowden/bbatch/blob/master/bdata.py). Use this to play with them in the REPL:
 
 ```bash
 python -i bdata.py
 ```
 
-You can also do this after you have ran `bbatch` or `bbatch.py` at least once and serialized a `file.json` or `file.pickle` data set:
+You can also do this after you have ran `bbatch` or `bbatch.py` at least once to generate either `file.json` or `file.pickle`.
 
-The main functions of use there are loading up the data and leaving you in the python interactive shell where you can (in my case and examples) `pp(htmls)` or `pp(mimes)` to see what kind of files you have mixed in there.
+Right now the main use case of that util is loading up the data and leaving you in the python interactive shell where you can do things like this: All files that contain 'html' in their MIME type; or files that did not contain `binary` encoding. 
 
-This was the result of using the functions in `bdata.py` on some example files on my machine, searching for files that contained 'html' in their MIME type as well as files that did not contain `binary`
+There are other possible queries but I'm looking at moving to sqlite3 sooner than later where that will solve itself.
 
 ```py
->> html
+>> htmls
 [{'name': 'rsa.mp4', 'param': 'mime', 'value': 'html'}]
 
 >> notbin
@@ -86,5 +180,5 @@ I determined that these were the mimes found in one of my directory datasets.
 {'us-ascii', 'binary'}
 ```
 
-Thanks for lookig at it. Open to suggestion, correction, review, etc.
+Thanks for looking at it. Open to suggestion, correction, review, etc.
 Refer to [bdata.py functions](https://github.com/shanerowden/bbatch/blob/master/bdata.py) to see how I did this.
