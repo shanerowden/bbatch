@@ -1,9 +1,7 @@
 # bbatch v0.2
 This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some of My Files...
-*This Script Works But the Code is an Absolute Mess, I am Aware...*
 
-### coming in version 0.3 I hope...
-I'm going to work on assembling an example directory and dataset of files that isn't a masse of unorganized stuff on my computer that I'm not going to just share as an exmaple on here.
+*This Script Works But the Code is an Absolute Mess, I am Aware...*
 
 + version 0.2 -- added bdata.py
 + version 0.1 -- started with the mess of bbatch.py
@@ -11,6 +9,10 @@ I'm going to work on assembling an example directory and dataset of files that i
 ### UTILITY: 
 To get the most use out of this tool right now, you should have a directory full of other directories with many files inside of them that you would like to pull out and organize in the project root.
 Right now it will not walk subdirs inside of subdirs -- it's active pulling files to the project root from only one level of directory depth
+
+
+#### TODO: needs an example dataset useage...
+I'm going to work on assembling an example at some point to demonstrate what the program does that isn't a masse of unorganized stuff on my computer that I'm not going to just share as an exmaple on here. But... it works if you can figure it out.
 
 ### PREREQUISITES
 1. Install python3 -- `apt install python3 python3-pip`
