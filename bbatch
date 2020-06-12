@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Use first argument to set the PROJECT ROOT Absolute Path
+# Use an optional second that can only be 'json' if you prefer that to pickle data
+
+export MCF2PD_PROOT="$1"
+python3 bbatch.py "$2"
