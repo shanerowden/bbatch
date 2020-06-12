@@ -1,3 +1,5 @@
+*WIP*
+
 # bbatch v0.2
 This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some of My Files...
 
@@ -6,7 +8,7 @@ This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some 
 
 ### UTILITY: 
 To get the most use out of this tool right now, you should have a directory full of other directories with many files inside of them that you would like to pull out and organize in the project root.
-Right now it will not walk subdirs inside of subdirs -- it's active pulling files to the project root from only one level of directory depth
+Right now it will not walk subdirs inside of subdirs -- it's actively pulling files to the project root from only one level of directory depth. This is mainly because doing more than that at one time means putting more effort into making sure files can get unique names.
 
 
 ### PREREQUISITES
