@@ -1,5 +1,5 @@
 # bbatch v0.2
-This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some of My Files...
+Big Batch Moves and Write Big Batch Data
 
 *This Script Works But the Code is an Absolute Mess, I am Aware...*
 
