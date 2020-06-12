@@ -64,7 +64,7 @@ python3 bbatch.py
 ...it will start like this:
     
 ```
-Looking for Path to project DEST in exported env variable MCF2PD_DEST
+Looking for Path to project ROOT in exported env variable MCF2PD_DEST
 Found at /path/to/project/root/
 Really Delete Switch is Set to -- False
 TYPE "DEL" to set to True > DEL
