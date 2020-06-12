@@ -126,26 +126,6 @@ LOADED PICKLE: /path/to/project/root/files.pickle
 
 When it's finished, it leaves you in the shell with the data loaded as a dict, `d`.
 
-
-```
-Looking for Path to project DEST in exported env variable MCF2PD_DEST
-Found at /path/to/project/root/
-Really Delete Switch is Set to -- False
-TYPE "DEL" to set to True > DEL
-Really going to delete. Press Any Key > 
-LENGTH OF DIRS: 54
-LENGTH OF FILES: 203
-PRESS ANY KEY > 
-Checking path: /path/to/project/root/README.md
-ALREADY EXISTS: /path/to/project/root/README.md
-Checking path: /path/to/project/root/LICENSE
-ALREADY EXISTS: /path/to/project/root/LICENSE
-Checking path: /path/to/project/root/LICENSE
-ALREADY EXISTS: /path/to/project/root/LICENSE
-Checking path: /path/to/project/root/webpack.config.js
-FILE WILL BE MOVING: /path/to/project/root/vanilla-terminal-CLONE/webpack.config.js TO /path/to/project/root/webpack.config.js
-```
-
 ## LATEST UPDATES
 I added these [bdata.py functions](https://github.com/shanerowden/bbatch/blob/master/bdata.py). Use this to play with them in the REPL:
 
