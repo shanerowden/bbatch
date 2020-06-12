@@ -6,11 +6,6 @@ This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some 
 + version 0.1 -- started with the mess of bbatch.py
 
 ### UTILITY: 
-Move child files in sub dirs of a root parent directly into the parent,
-removing all of the child dirs if possible without overwriting anything.
-After processing, saves all the file contents of the project PROOT directory
-a data stucture for additional processing.
-
 To get the most use out of this tool right now, you should have a directory full of other directories with many files inside of them that you would like to pull out and organize in the project root.
 Right now it will not walk subdirs inside of subdirs -- it's active pulling files to the project root from only one level of directory depth
 
