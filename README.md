@@ -45,7 +45,7 @@ If the program cannot find a project root it will attempt to make one at
 
 ### LATEST UPDATES
 
-I added this.
+I added these [bdata.py functions](https://github.com/shanerowden/bbatch/blob/master/bdata.py)
 
 ```bash
 python -i bdata.py
@@ -53,7 +53,7 @@ python -i bdata.py
 
 You can also do this after you have ran `bbatch` or `bbatch.py` at least once and serialized a `file.json` or `file.pickle` dataset:
 
-The main functions of use there are loading up the data and leaving you in the python interactive shell where you can `pp(htmls)` or `pp(mimes)` to see what kind of files you have mixed in there.
+The main functions of use there are loading up the data and leaving you in the python interactive shell where you can (in my case and examples) `pp(htmls)` or `pp(mimes)` to see what kind of files you have mixed in there.
 
 This was the result of using the functions in `bdata.py` on some example files on my machine, searching for files that contained 'html' in their MIME type as well as files that did not contain `binary`
 
@@ -79,3 +79,4 @@ I determined that these were the mimes found in one of my directory datasets.
 ```
 
 Thanks for lookig at it. Open to suggestion, correction, review, etc.
+Refer to [bdata.py functions](https://github.com/shanerowden/bbatch/blob/master/bdata.py) to see how I did this.
