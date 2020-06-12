@@ -1,5 +1,5 @@
 # bbatch v0.2
-Big Batch Moves and Write Big Batch Data
+Big Batch Moves and Big Batch Data
 
 *This Script Works But the Code is an Absolute Mess, I am Aware...*
 
