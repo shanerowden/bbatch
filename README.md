@@ -18,7 +18,7 @@ Right now it will not walk subdirs inside of subdirs -- it's active pulling file
 
 + Optionally, you can have virtualenv to do venvs and automate installing requirements as they are needed. Currently there is not much need though.
 
-### Usage: 
+### INSTALL: 
 ```bash
 git clone https://github.com/shanerowden/bbatch.git
 cd bbatch
@@ -26,6 +26,10 @@ python3 -m virtualenv venv
 source venv/bin/activate
 python -m pip install -r requirements.txt
 chmod u+x bbatch
+```
+
+### USAGE
+```bash
 ./bbatch <'/path/to/project/root/'> <'json'>
 ```
 
