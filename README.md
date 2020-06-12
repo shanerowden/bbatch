@@ -1,6 +1,9 @@
 # bbatch v0.2
-This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some of My Files... 
-**This Script Works But the Code is an Absolute Mess, I am Aware...**
+This is the Basis for An Attempt to Make Big Batch Moves and Write Data on Some of My Files...
+*This Script Works But the Code is an Absolute Mess, I am Aware...*
+
+### coming in version 0.3 I hope...
+I'm going to work on assembling an example directory and dataset of files that isn't a masse of unorganized stuff on my computer that I'm not going to just share as an exmaple on here.
 
 + version 0.2 -- added bdata.py
 + version 0.1 -- started with the mess of bbatch.py

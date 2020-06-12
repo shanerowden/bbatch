@@ -65,20 +65,14 @@ PROOT = init_root_dir()
 PICKLE = PROOT / 'files.pickle'
 JSON = PROOT / 'files.json'
 
-
+print(sys.argv)
 def parse_data_opt(args=sys.argv):
     '''
     For now uses sys.argv instead of argparse to determine if the 'json' option is used.
     This is the only argument atm.
     '''
-    _, *a = args
-    #a = a.splstrip()
-    if a[0] == 'json':
+    if len(args) != 1 or args[-1] == 'json':
         return True
-    else:
-        print('Failed to parse args. Use no arguments or specify \n'\
-            + 'Use "python3 script.py json" if you want')
-            
 
 def init_get_paths(get_generator=False):
     '''
